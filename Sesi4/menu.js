@@ -11,14 +11,16 @@ output: process.stdout
 
 // Minta input dari pengguna
 inputUser.question('Masukkan angka pertama: ', angka1 => {
-// tambahkan input untuk angka kedua
-// tambahkan input untuk memasukkan operator(+, -, *, /)
-console.log(
-`Hasil: ${kalkulator(
-parseFloat(angka1),
-parseFloat(angka2),
-operator
-)}`
-);
-inputUser.close();
+  inputUser.question('Masukkan angka kedua: ', angka2 => {
+    inputUser.question('Masukkan operator (+, -, *, /): ', operator => {
+      console.log(
+        `Hasil: ${kalkulator(
+          parseFloat(angka1),
+          parseFloat(angka2),
+          operator
+        )}`
+      );
+      inputUser.close();
+    });
+  });
 });
